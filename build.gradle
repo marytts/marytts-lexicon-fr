@@ -1,20 +1,10 @@
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "gradle.plugin.de.dfki.mary:gradle-marytts-lexicon-compiler-plugin:0.1.0"
-    }
+plugins {
+  id "de.dfki.mary.lexicon-compiler" version "0.1.0"
+  id 'maven-publish'
 }
 
 group 'de.dfki.mary'
 version '0.1.0-SNAPSHOT'
-
-apply plugin: 'de.dfki.mary.lexicon-compiler'
-
-apply plugin: 'maven-publish'
 
 task sourceJar(type: Jar) {
     from sourceSets.main.allJava
