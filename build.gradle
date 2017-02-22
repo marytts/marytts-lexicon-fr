@@ -12,10 +12,6 @@ buildscript {
 group 'de.dfki.mary'
 version '0.1.0-SNAPSHOT'
 
-ext {
-    locale = 'fr'
-}
-
 apply plugin: 'de.dfki.mary.lexicon-compiler'
 
 apply plugin: 'maven-publish'
