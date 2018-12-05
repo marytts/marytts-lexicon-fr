@@ -7,7 +7,7 @@
 	<vowel ph="3" ipa="ɜ" vlng="l" vheight="1" vfront="1" vrnd="-"/>
 	<vowel ph="E" ipa="ɛ" vlng="l" vheight="2" vfront="1" vrnd="-"/>
 	<vowel ph="a" ipa="a" vlng="l" vheight="3" vfront="2" vrnd="-"/>
-	<vowel ph="0" ipa="ɔ" vlng="s" vheight="2" vfront="3" vrnd="+"/>
+	<vowel ph="O" ipa="ɔ" vlng="s" vheight="2" vfront="3" vrnd="+"/>
 	<vowel ph="o" ipa="o" vlng="l" vheight="2" vfront="3" vrnd="+"/>
 	<vowel ph="u" ipa="u" vlng="l" vheight="1" vfront="3" vrnd="+"/>
 	<vowel ph="y" ipa="y" vlng="l" vheight="1" vfront="2" vrnd="+"/>
