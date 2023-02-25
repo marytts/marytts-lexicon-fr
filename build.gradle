@@ -1,5 +1,5 @@
 plugins {
-    id "de.dfki.mary.lexicon-compiler" version "0.1.1"
+    id "de.dfki.mary.lexicon-compiler" version "0.2.0"
     id 'maven-publish'
 }
 
