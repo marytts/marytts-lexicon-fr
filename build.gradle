@@ -6,6 +6,14 @@ plugins {
 group 'de.dfki.mary'
 version '0.2.0-SNAPSHOT'
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+    withSourcesJar()
+    withJavadocJar()
+}
+
 task sourceJar(type: Jar) {
     from sourceSets.main.allJava
 }
