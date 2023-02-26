@@ -9,6 +9,7 @@ description 'French lexicon for MaryTTS'
 
 ext {
     url = 'https://github.com/marytts/marytts-lexicon-fr'
+    isReleaseVersion = !version.endsWith("SNAPSHOT")
 }
 
 java {
@@ -63,14 +64,10 @@ publishing {
     }
     repositories {
         maven {
-            url "$rootProject.buildDir/repo"
-        }
-        maven {
-            url version.endsWith('-SNAPSHOT') ? 'https://oss.jfrog.org/artifactory/oss-snapshot-local' : 'https://api.bintray.com/maven/marytts/marytts/marytts'
-            credentials {
-                username = findProperty('bintrayUser')
-                password = findProperty('bintrayApiKey')
-            }
+            name 'OSSRH'
+            url isReleaseVersion ? 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
+                    : 'https://oss.sonatype.org/content/repositories/snapshots'
+            credentials(PasswordCredentials)
         }
     }
 }
