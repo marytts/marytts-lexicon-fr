@@ -4,6 +4,13 @@ French lexicon for MaryTTS
 [Unreleased]
 ------------
 
+### Changed
+
+- [all changes since v0.1.1]
+
+[v0.1.1] - 2023-02-26
+---------------------
+
 ### Added
 
 - IPA symbols in allophones
@@ -30,5 +37,7 @@ French lexicon for MaryTTS
 Functional parity with MaryTTS v5.2 (plus stress fixes)
 
 [Unreleased]: https://github.com/marytts/marytts-lexicon-fr/tree/master
-[all changes since v0.1.0]: https://github.com/marytts/marytts-lexicon-fr/compare/v0.1.0...HEAD
+[all changes since v0.1.1]: https://github.com/marytts/marytts-lexicon-fr/compare/v0.1.1...HEAD
+[v0.1.1]: https://github.com/marytts/marytts-lexicon-fr/releases/tag/v0.1.1
+[all changes since v0.1.0]: https://github.com/marytts/marytts-lexicon-fr/compare/v0.1.0...v0.1.1
 [v0.1.0]: https://github.com/marytts/marytts-lexicon-fr/releases/tag/v0.1.0
