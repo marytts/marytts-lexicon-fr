@@ -1,10 +1,17 @@
 plugins {
     id "de.dfki.mary.lexicon-compiler" version "0.2.0"
     id 'maven-publish'
+    id 'signing'
 }
 
 group 'de.dfki.mary'
 version '0.2.0-SNAPSHOT'
+description 'French lexicon for MaryTTS'
+
+ext {
+    url = 'https://github.com/marytts/marytts-lexicon-fr'
+    isReleaseVersion = !version.endsWith("SNAPSHOT")
+}
 
 java {
     toolchain {
@@ -18,18 +25,59 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
+            pom {
+                name = project.name
+                description = project.description
+                url = project.url
+                licenses {
+                    license {
+                        name = 'GNU Lesser General Public License v3.0 only'
+                        url = 'https://spdx.org/licenses/LGPL-3.0-only.html'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'sathishpc'
+                        name = 'Sathish Pammi'
+                    }
+                    developer {
+                        id = 'psibre'
+                        name = 'Ingmar Steiner'
+                    }
+                    developer {
+                        id = 'seblemaguer'
+                        name = 'Sébastien Le Maguer'
+                    }
+                }
+                contributors {
+                    contributor {
+                        name = 'Sascha Brawer'
+                        url = 'https://github.com/brawer'
+                    }
+                }
+                scm {
+                    connection = "scm:git:${project.url}.git"
+                    developerConnection = "scm:git:ssh://git@github.com:marytts/${project.name}.git"
+                    url = project.url
+                }
+            }
         }
     }
     repositories {
         maven {
-            url "$rootProject.buildDir/repo"
-        }
-        maven {
-            url version.endsWith('-SNAPSHOT') ? 'https://oss.jfrog.org/artifactory/oss-snapshot-local' : 'https://api.bintray.com/maven/marytts/marytts/marytts'
-            credentials {
-                username = findProperty('bintrayUser')
-                password = findProperty('bintrayApiKey')
-            }
+            name 'OSSRH'
+            url isReleaseVersion ? 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
+                    : 'https://oss.sonatype.org/content/repositories/snapshots'
+            credentials(PasswordCredentials)
         }
     }
+}
+
+signing {
+    required { isReleaseVersion }
+    sign publishing.publications.mavenJava
+}
+
+tasks.withType(Sign).configureEach {
+    onlyIf { isReleaseVersion }
 }
