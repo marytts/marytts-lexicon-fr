@@ -6,6 +6,7 @@ French lexicon for MaryTTS
 
 ### Changed
 
+- Upgraded GitHub actions
 - [all changes since v0.1.1]
 
 [v0.1.1] - 2023-02-26
